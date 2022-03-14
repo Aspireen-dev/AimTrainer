@@ -14,20 +14,20 @@ public class GamePanel : MonoBehaviour
     [SerializeField]
     private PausePanel pausePanel;
     [SerializeField]
-    private GameObject pauseBtn;
+    private GameObject phoneUI;
 
     void Start()
     {
         crosshair.Show();
 #if UNITY_ANDROID
-        pauseBtn.SetActive(true);
+        phoneUI.SetActive(true);
 #endif
     }
 
-#if UNITY_EDITOR || UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             Pause();
         }

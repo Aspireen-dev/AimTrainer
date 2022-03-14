@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         Unpause();
     }
 
-#if UNITY_EDITOR || UNTIY_STANDALONE
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
-#if UNITY_EDITOR || UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
         UnlockCursor();
 #endif
         isPlaying = false;
@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
     }
     public void Unpause()
     {
-#if UNITY_EDITOR || UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
         LockCursor();
 #endif
         isPlaying = true;
@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
 
     private void OnDestroy()
     {
-#if UNITY_EDITOR || UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
         UnlockCursor();
 #endif
         Time.timeScale = 1;

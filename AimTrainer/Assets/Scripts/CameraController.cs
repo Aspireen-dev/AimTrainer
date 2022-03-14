@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-#if UNITY_EDITOR || UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
         sensitivity = 100.0f;
 #elif UNITY_ANDROID
         sensitivity = 5.0f;
@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
     {
         if (Time.timeScale > 0f)
         {
-#if UNITY_EDITOR || UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
             yRotation += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
             yRotation = Mathf.Clamp(yRotation, -maxClampAngle, maxClampAngle);
             xRotation -= Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
